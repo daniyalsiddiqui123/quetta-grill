@@ -55,29 +55,29 @@ export default function Hero({ onReserveClick, onMenuClick }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block text-5xl mb-6"
+            className="inline-block text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-6"
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             🍽️
           </motion.span>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             {t.hero.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto px-2">
             {t.hero.subtitle}
           </p>
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -86,7 +86,7 @@ export default function Hero({ onReserveClick, onMenuClick }: HeroProps) {
             whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(234, 88, 12, 0.4)' }}
             whileTap={{ scale: 0.95 }}
             onClick={onReserveClick}
-            className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all"
+            className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:shadow-xl transition-all shadow-xl"
           >
             {t.hero.reserve}
           </motion.button>
@@ -94,7 +94,7 @@ export default function Hero({ onReserveClick, onMenuClick }: HeroProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onMenuClick}
-            className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all"
+            className="backdrop-blur-xl bg-opacity-0 border border-white/20 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all hover:bg-white/10"
           >
             {t.hero.viewMenu}
           </motion.button>

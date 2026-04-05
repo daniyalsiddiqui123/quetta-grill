@@ -16,9 +16,9 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
           {/* Image Side */}
           <motion.div
             className="relative"
@@ -26,7 +26,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
               <div
                 className="aspect-square bg-cover bg-center"
                 style={{
@@ -38,18 +38,18 @@ export default function AboutSection() {
             </div>
 
             {/* Floating Stats */}
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4">
+            <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 w-[90%] sm:w-auto justify-center flex-wrap">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-xl text-center min-w-[100px]"
+                  className="bg-white dark:bg-gray-800 rounded-xl p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] md:min-w-[100px] shadow-xl"
                 >
-                  <span className="text-2xl block mb-1">{stat.icon}</span>
-                  <span className="text-2xl font-bold text-orange-600 block">
+                  <span className="text-xl sm:text-2xl block mb-1">{stat.icon}</span>
+                  <span className="text-xl sm:text-2xl font-bold text-orange-600 block">
                     {stat.value}
                   </span>
-                  <span className="text-xs text-gray-600 dark:text-gray-400">
+                  <span className="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">
                     {stat.label}
                   </span>
                 </motion.div>
@@ -59,41 +59,38 @@ export default function AboutSection() {
 
           {/* Content Side */}
           <motion.div
-            className="lg:pl-8"
+            className="lg:pl-4 md:lg:pl-8"
             initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-4xl mb-4 block">👨‍🍳</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <span className="text-3xl sm:text-4xl mb-3 sm:mb-4 block">👨‍🍳</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               {t.about.title}
             </h2>
-            <p className="text-xl text-orange-600 font-semibold mb-6">
+            <p className="text-lg sm:text-xl text-orange-600 font-semibold mb-4 sm:mb-6">
               {t.about.subtitle}
             </p>
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <p className="leading-relaxed">{t.about.description1}</p>
-              <p className="leading-relaxed">{t.about.description2}</p>
+            <div className="space-y-3 sm:space-y-4 text-gray-700 dark:text-gray-300">
+              <p className="leading-relaxed text-sm sm:text-base">{t.about.description1}</p>
+              <p className="leading-relaxed text-sm sm:text-base">{t.about.description2}</p>
             </div>
 
             <motion.div
-              className="mt-8 flex flex-wrap gap-4"
+              className="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 md:gap-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-2 bg-orange-50 dark:bg-orange-900/20 px-4 py-2 rounded-lg">
-                <span className="text-orange-600">✓</span>
-                <span className="text-gray-700 dark:text-gray-300">Halal Certified</span>
-              </div>
-              <div className="flex items-center gap-2 bg-orange-50 dark:bg-orange-900/20 px-4 py-2 rounded-lg">
-                <span className="text-orange-600">✓</span>
-                <span className="text-gray-700 dark:text-gray-300">Fresh Ingredients</span>
-              </div>
-              <div className="flex items-center gap-2 bg-orange-50 dark:bg-orange-900/20 px-4 py-2 rounded-lg">
-                <span className="text-orange-600">✓</span>
-                <span className="text-gray-700 dark:text-gray-300">Family Recipes</span>
-              </div>
+              {['Halal Certified', 'Fresh Ingredients', 'Family Recipes'].map((badge, index) => (
+                <div
+                  key={index}
+                  className="bg-orange-50 dark:bg-orange-900/20 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center gap-2 text-sm sm:text-base"
+                >
+                  <span className="text-orange-600">✓</span>
+                  <span className="text-gray-700 dark:text-gray-300 font-medium">{badge}</span>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
         </div>
