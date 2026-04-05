@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <main dir={language === 'ar' ? 'rtl' : 'ltr'} className="bg-white">
+    <main dir={language === 'ar' ? 'rtl' : 'ltr'} className="bg-white overflow-x-hidden">
       <Navbar />
       <Hero
         onReserveClick={() => scrollToSection('reservation')}

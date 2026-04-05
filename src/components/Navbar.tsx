@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/data/translations';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,20 +19,20 @@ export default function Navbar() {
     }
   };
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', () => {
+  useEffect(() => {
+    const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-    });
-  }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-opacity-0 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-opacity-0 border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className={`flex items-center justify-between h-16 sm:h-18 md:h-20 transition-all duration-300 ${
-          isScrolled ? 'border-b border-white/20 dark:border-white/10' : ''
-        }`}>
+        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
